@@ -1,7 +1,9 @@
 # Variables
 IMAGE_NAME := test-repo
 REGISTRY := ghcr.io
-FULL_IMAGE_NAME := $(REGISTRY)/$(IMAGE_NAME)
+# Note: For local builds, you may need to replace 'astonebe' with your actual GitHub username
+GITHUB_USER := astonebe
+FULL_IMAGE_NAME := $(REGISTRY)/$(GITHUB_USER)/$(IMAGE_NAME)
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "latest")
 BUILD_DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 GIT_COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
